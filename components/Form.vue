@@ -1,7 +1,6 @@
 <template>
   <form @submit.prevent="addTodo">
-    <input v-model="newTodo" type="text" placeholder="Enter a task" />
-    <button type="submit">Add</button>
+    <v-text-field v-model="newTodo" label="Enter a task" variant="solo-filled"></v-text-field>
   </form>
 </template>
 
@@ -15,6 +14,9 @@ export default {
     const newTodo = ref('')
 
     const addTodo = () => {
+      if (!newTodo.value) {
+        return
+      }
       todosStore.addTodo(newTodo.value)
       newTodo.value = ''
     }

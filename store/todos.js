@@ -33,7 +33,7 @@ export const useTodosStore = defineStore({
     toggleComplete(id) {
       this.todos = this.todos.map((todo) => {
         if (todo.id === id) {
-          todo.isComplete = !todo.isComplete
+          todo.isComplete = ! todo.isComplete
         }
 
         return todo

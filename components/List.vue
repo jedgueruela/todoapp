@@ -1,15 +1,21 @@
 <template>
-  <ul>
+  <v-chip-group>
+    <v-chip @click="filter = 'all'">All</v-chip>
+
+    <v-chip @click="filter = 'active'">Active</v-chip>
+
+    <v-chip @click="filter = 'completed'">Completed</v-chip>
+  </v-chip-group>
+  
+  <ul v-show="!! todos.length" class="list">
     <li v-for="(todo, index) in todos" :key="index">
       <Todo :todo="todo" />
     </li>
   </ul>
 
-  <div>
-    <button @click="filter = 'all'">All </button>
-    <button @click="filter = 'active'">Active</button>
-    <button @click="filter = 'completed'">Completed</button>
-  </div>
+  <br>
+  
+  <span>Showing {{ todos.length }} item(s).</span>
 </template>
 
 <script>
@@ -38,3 +44,14 @@
     },
   }
 </script>
+
+<style scoped lang="scss">
+  .list {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+</style>
+
