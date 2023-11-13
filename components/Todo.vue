@@ -5,7 +5,7 @@
 
     <h3 class="todo-body">{{ todo.body }}</h3>
     
-    <v-btn @click="removeTodo(todo.id)">
+    <v-btn @click.stop="removeTodo(todo.id)">
       <v-icon icon="mdi-delete" />
     </v-btn>
   </div>
